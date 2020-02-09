@@ -1,0 +1,80 @@
+﻿﻿<!DOCTYPE html>
+<html lang="et">
+  <head>
+    <meta charset="utf-8" />
+    <title>JavaScript Math Game</title>
+
+    <style>
+      body {
+        font-size: 1.6rem;
+        text-align: center;
+        background: #ccffcc;
+      }
+    </style>
+  </head>
+
+  <body>
+    <p>Genereerime kaks numbrit</p>
+    <script>
+      // VARIABLES
+      let algus, lopp, juhuslik, juhuslik2, korrutamine;
+      var counter = 0;
+
+      // 2 NR GENEREERIMINE
+      function genereeriJuhuslik() {
+        algus = 1;
+        lopp = 10;
+
+        juhuslik = Math.floor(Math.random() * (lopp - algus + 1)) + algus;
+        juhuslik2 = Math.floor(Math.random() * (lopp - algus + 1)) + algus;
+
+        document.querySelector("#num1").value = juhuslik;
+        document.querySelector("#num2").value = juhuslik2;
+        korrutamine = juhuslik * juhuslik2;
+      }
+
+      // VASTUSE KONTROLL
+      function kontroll() {
+        const pakkumine = document.querySelector("#pakkumine").value;
+        counter += 1;
+        document.querySelector(
+          "#counter"
+        ).innerHTML = `Katsete Arv: ${counter}`;
+
+        if (pakkumine == "") {
+          document.querySelector("#vastus").innerHTML =
+            "Palun Sisestage Enda Pakutud Arv!";
+          document.querySelector("#vastus").style.color = "#000";
+        } else if (pakkumine != korrutamine) {
+          document.querySelector("#vastus").innerHTML =
+            "Vale Vastus, Paku Veel";
+          document.querySelector("#vastus").style.color = "red";
+        } else {
+          document.querySelector(
+            "#vastus"
+          ).innerHTML = `Õige Vastus!! ${juhuslik} * ${juhuslik2} = ${korrutamine}.`;
+          document.querySelector("#vastus").style.color = "green";
+        }
+
+        if (counter == 3 && pakkumine != korrutamine) {
+          window.location.reload();
+        } else if (counter == 4 && pakkumine == korrutamine) {
+          window.location.reload();
+        }
+      }
+    </script>
+    Esimene arv: <input type="text" id="num1" /><br /><br />
+    Teine arv: <input type="text" id="num2" /><br /><br />
+    <button onclick="genereeriJuhuslik()">Genereeri arv</button> <br /><br />
+
+    <p id="korrutamine"></p>
+    <!-- KORRUTAMINE -->
+    Mis on vastus kahe arvu korrutamisel?
+    <input type="text" id="pakkumine" value="" /><br /><br />
+    <button onclick="kontroll()">Kontrolli</button>
+    <br /><br />
+
+    <p id="counter"></p>
+    <p id="vastus"></p>
+  </body>
+</html>
