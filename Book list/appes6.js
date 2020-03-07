@@ -132,8 +132,6 @@ document.getElementById("book-form").addEventListener("submit", function(e) {
   // Instantiate UI object
   const ui = new UI();
 
-  console.log(ui);
-
   // Validate
   if (title === "" || author === "" || isbn === "") {
     // Error alert
