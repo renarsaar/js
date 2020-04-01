@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script
+      src="https://kit.fontawesome.com/83a1148b27.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/4/cosmo/bootstrap.min.css"
+    />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/style/style.css" />
+    <title>VRA | Workout Tracker</title>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar fixed bg-light navbar-light mb-3">
+      <div class="container">
+        <a href="#" class="navbar-brand">VRA Workout Tracker</a>
+      </div>
+    </nav>
+    <!-- CONTAINER -->
+    <div class="container workoutContainer">
+      <!-- FORM -->
+      <div class="card card-body card-form">
+        <div class="row mb-3 change-live">
+          <h1 class="mb-3 col">Add a new workout</h1>
+          <button class="live-workout mr-3 btn background">
+            Live Workout
+          </button>
+          <div class="add"></div>
+        </div>
+
+        <!-- WORKOUT NAME -->
+        <div class="form-group">
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            placeholder="Name (Friends/Coaches)*"
+          />
+        </div>
+
+        <!-- WORKOUT ACTIVITY -->
+        <div class="form-group">
+          <input
+            type="text"
+            id="activity"
+            class="form-control"
+            placeholder="Workout Activity*"
+          />
+        </div>
+
+        <!-- DATE & TIME -->
+        <div class="row mb-3 datetime">
+          <div class="col">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Date*</div>
+              </div>
+              <input
+                placeholder="Date"
+                type="date"
+                id="date"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="col">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Time*</div>
+              </div>
+              <input type="time" id="time" class="form-control" />
+            </div>
+          </div>
+        </div>
+
+        <!-- DISTANCE & DURATION -->
+        <div class="row mb-3 disdur">
+          <div class="col">
+            <input
+              type="text"
+              id="distance"
+              class="form-control"
+              placeholder="Distance"
+            />
+          </div>
+          <div class="col">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Duration</div>
+              </div>
+              <input type="time" id="duration" class="form-control" />
+            </div>
+          </div>
+        </div>
+
+        <!-- NOTES AND COMMENTS -->
+        <div class="form-group notes">
+          <textarea
+            id="notes"
+            class="form-control"
+            placeholder="Notes and Comments"
+          ></textarea>
+        </div>
+
+        <!-- HIDDEN ID -->
+        <input type="hidden" id="id" value="" />
+
+        <!-- SUBMIT -->
+        <button class="workout-submit btn background btn-block">
+          Add to tracker
+        </button>
+        <span class="form-end"></span>
+      </div>
+      <br />
+      <div id="live"></div>
+      <div id="workouts"></div>
+    </div>
+
+    <script src="build/app.bundle.js"></script>
+  </body>
+</html>

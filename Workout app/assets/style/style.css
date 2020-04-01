@@ -1,0 +1,42 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: url("../img/3.jpg") no-repeat fixed center/cover;
+  opacity: 0.9;
+}
+
+.delete {
+  color: red;
+}
+
+.edit {
+  color: orange;
+}
+
+.grey {
+  background: #999;
+}
+
+.background {
+  background: #cfb73c;
+}
+
+.disable {
+  pointer-events: none;
+  cursor: default;
+}
+
+.btn:hover {
+  opacity: 0.9;
+  transition: all 0.5s;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
