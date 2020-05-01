@@ -4,11 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/83a1148b27.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Expence tracker</title>
   </head>
   <body>
+    <!-- Info Slider -->
+    <aside>
+      <div class="slider-container">
+        <div id="toggle" class="toggle">
+          <i class="fas fa-info-circle"></i>
+        </div>
+
+        <!-- <i class="fas fa-pencil-alt"></i> -->
+
+        <div class="info">
+          <p>
+            Welcome! <br>
+            This is an Expense Tracker application. It is availeable to store your incomes and expences, view history, edit transactions and delete them.
+            All my other work is at <a href="https://github.com/renarsaar">Github</a> <br> <br>
+            Made with Vanilla JS.
+            Some of the features used in this Project: 
+            <ul>
+              <li>Local Storage</li>
+              <li>DOM Manipulation & Events</li>
+              <li>ES6 Features: Arrow functions, Ternary Operators</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+    </aside>
+
     <h2>Expense tracker</h2>
     <div class="container">
+      <!-- Balance section -->
       <h4>Your Balance</h4>
       <h1 id="balance">0.00€</h1>
 
@@ -23,16 +54,13 @@
         </div>
       </div>
 
+      <!-- Histoy List -->
       <h3>
         History
       </h3>
+      <ul id="list" class="list"></ul>
 
-      <ul id="list" class="list">
-        <!-- <li class="minus">
-          expence <span>400€</span><button class="delete-btn">x</button>
-        </li> -->
-      </ul>
-
+      <!-- Add New Transaction -->
       <h3>Add new transaction</h3>
       <form id="form">
         <div class="form-control">
@@ -43,8 +71,8 @@
         <div class="form-control">
           <label for="amount"
             >Amount <br />
-            (negative - expence, positive - income)</label
-          >
+            (negative - expence, positive - income)
+          </label>
           <input type="number" id="amount" placeholder="Enter amount" />
         </div>
 
@@ -52,6 +80,45 @@
         <button class="btn">Add Transaction</button>
       </form>
     </div>
+
+    <!-- Edit Modal -->
+    <div class="modal-container" id="modal">
+      <div class="modal">
+        <button class="close-btn" id="close">
+          <i class="fa fa-times"></i>
+        </button>
+        <div class="modal-header">
+          <h3>Edit Transaction</h3>
+        </div>
+        <form class="modal-form">
+          <div>
+            <label class="modal-label" for="name">Text</label>
+            <input
+              type="text"
+              id="edit-text"
+              class="form-input"
+              placeholder="Enter text"
+            />
+          </div>
+          <div>
+            <label for="Email"
+              >Amount <br />
+              (negative - expence, positive - income)</label
+            >
+            <input
+              type="number"
+              id="edit-amount"
+              class="form-input"
+              placeholder="Enter amount"
+            />
+            <input type="hidden" id="transactionID" />
+          </div>
+          <p class="alert" id="edit-alert"></p>
+          <button id="edit-submit" class="btn">Confirm</button>
+        </form>
+      </div>
+    </div>
+
     <script src="main.js"></script>
   </body>
 </html>
