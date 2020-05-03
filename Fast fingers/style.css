@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #2c3e50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button {
+  cursor: pointer;
+  font-size: 0.9rem;
+  border-radius: 0.2rem;
+  padding: 0.3rem 0.9rem;
+}
+
+button:focus,
+select:focus {
+  outline: none;
+}
+
+/* Settings */
+select {
+  width: 200px;
+  padding: 0.3rem;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.settings-btn {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+}
+
+.settings {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(0);
+  transition: transform 0.4s ease-in;
+}
+
+.settings.hide {
+  transform: translateY(-100%);
+}
+
+/* Game */
+.container {
+  background-color: #34495e;
+  color: #fff;
+  padding: 1.4rem;
+  border-radius: 4px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  position: relative;
+  text-align: center;
+  width: 500px;
+}
+
+.container h2 {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin: 0 0 2.6rem;
+}
+
+.container h1 {
+  margin: 0;
+}
+
+.container input {
+  border: 0;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  width: 300px;
+  padding: 0.8rem 1.2rem;
+  margin-top: 0.6rem;
+}
+
+.time-container {
+  position: absolute;
+  top: 60px;
+  left: 20px;
+}
+
+.score-container {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+}
+
+.end-game-container {
+  background-color: inherit;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+}
