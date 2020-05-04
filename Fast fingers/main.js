@@ -74,6 +74,36 @@ function gameOver() {
   endGameContainer.style.display = "flex";
 }
 
+function keyboardHighlight(e) {
+  const keyPress = e.target.value;
+  let randomWordLetters = randomWord.split("");
+
+  if (
+    randomWordLetters[keyPress.length - 1] ===
+    keyPress.charAt(keyPress.length - 1)
+  ) {
+    document
+      .getElementById(`${keyPress.charAt(keyPress.length - 1)}`)
+      .classList.add("correct");
+
+    setTimeout(() => {
+      document
+        .getElementById(`${keyPress.charAt(keyPress.length - 1)}`)
+        .classList.remove("correct");
+    }, 300);
+  } else {
+    document
+      .getElementById(`${keyPress.charAt(keyPress.length - 1)}`)
+      .classList.add("incorrect");
+
+    setTimeout(() => {
+      document
+        .getElementById(`${keyPress.charAt(keyPress.length - 1)}`)
+        .classList.remove("incorrect");
+    }, 300);
+  }
+}
+
 // Init
 getWord();
 addWordToDOM();
@@ -83,6 +113,8 @@ addWordToDOM();
 // Typing
 text.addEventListener("input", (e) => {
   const insertedText = e.target.value;
+
+  keyboardHighlight(e);
 
   if (insertedText === randomWord) {
     addWordToDOM();

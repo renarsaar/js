@@ -30,23 +30,64 @@
     </div>
 
     <!-- Game -->
-    <div class="container">
-      <h2>Speed Typer</h2>
-      <small>Type the following: </small>
+    <div class="game">
+      <div class="container">
+        <h2>Speed Typer</h2>
+        <small>Type the following: </small>
 
-      <h1 id="word"></h1>
-      <input
-        type="text"
-        id="text"
-        autocomplete="off"
-        placeholder="Type the word here..."
-      />
+        <h1 id="word"></h1>
+        <input
+          type="text"
+          id="text"
+          autocomplete="off"
+          placeholder="Type the word here..."
+        />
 
-      <p class="time-container">Time left: <span id="time">10s</span></p>
+        <p class="time-container">Time left: <span id="time">10s</span></p>
 
-      <p class="score-container">Score: <span id="score">0</span></p>
+        <p class="score-container">Score: <span id="score">0</span></p>
 
-      <div id="end-game-container" class="end-game-container"></div>
+        <div id="end-game-container" class="end-game-container"></div>
+      </div>
+
+      <!-- Keyboard -->
+      <div class="keyboard-container">
+        <div class="first-row">
+          <span id="q">Q</span>
+          <span id="w">W</span>
+          <span id="e">E</span>
+          <span id="r">R</span>
+          <span id="t">T</span>
+          <span id="y">Y</span>
+          <span id="u">U</span>
+          <span id="i">I</span>
+          <span id="o">O</span>
+          <span id="p">P</span>
+        </div>
+        <div class="second-row">
+          <span id="a">A</span>
+          <span id="s">S</span>
+          <span id="d">D</span>
+          <span id="f">F</span>
+          <span id="g">G</span>
+          <span id="h">H </span>
+          <span id="j">J</span>
+          <span id="k">K</span>
+          <span id="l">L</span>
+          <span id=";">;</span>
+        </div>
+        <div class="third-row">
+          <span id="z">Z</span>
+          <span id="x">X</span>
+          <span id="c">C</span>
+          <span id="v">V</span>
+          <span id="b">B</span>
+          <span id="n">N</span>
+          <span id="m">M</span>
+          <span id=",">,</span>
+          <span id=".">.</span>
+        </div>
+      </div>
     </div>
 
     <script src="main.js"></script>
