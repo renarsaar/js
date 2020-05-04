@@ -16,7 +16,11 @@ body {
 
 a {
   text-decoration: none;
-  color: #222;
+  color: #fff;
+}
+
+h1 {
+  color: #fff;
 }
 
 a:hover {
@@ -25,31 +29,29 @@ a:hover {
 
 h1 {
   font-size: 45px;
-  /* color: ; */
 }
 
 .vra {
+  background: inherit;
   position: absolute;
   top: 30px;
   right: 30px;
   display: inline-block;
-  background: #fff;
   border: 0;
 }
 
 canvas {
-  background: #cccbcb;
+  background: inherit;
   display: block;
-  border-radius: 10px;
+  border: 1px solid #fff;
 }
 
 .btn {
   cursor: pointer;
   border: 0;
-  padding: 10px 20px;
+  padding: 8px 25px;
   background: #000;
   color: #fff;
-  border-radius: 5px;
 }
 
 .btn:focus {
