@@ -12,10 +12,14 @@ const brickColCount = 5;
 
 // Ball properties
 const ball = {
+  // Position
   x: canvas.width / 2,
   y: canvas.height / 2,
+  // Size
   size: 13,
+  // Speed
   speed: 6,
+  // X and Y axis move direction
   dx: 6,
   dy: -6,
 };
@@ -24,6 +28,7 @@ const ball = {
 const paddle = {
   x: canvas.width / 2 - 80,
   y: canvas.height - 20,
+  // Size
   w: 160,
   h: 15,
   speed: 10,
@@ -94,16 +99,71 @@ function drawScore() {
   ctx.fillText(`Score: ${score}`, canvas.width - 70, 30);
 }
 
+// Move paddle on canvas
+function movePaddle() {
+  paddle.x += paddle.dx;
+
+  // Wall detection
+  // Right side
+  if (paddle.x + paddle.w > canvas.width) {
+    paddle.x = canvas.width - paddle.w;
+  }
+
+  // Left side
+  if (paddle.x < 0) {
+    paddle.x = 0;
+  }
+}
+
 // Call canvas
 function draw() {
+  // Clear ctx
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
   drawBall();
   drawPaddle();
   drawScore();
   drawBricks();
 }
 
-// Init()
-draw();
+// Update canvas drawing and animation
+function update() {
+  movePaddle();
+
+  // Init()
+  draw();
+
+  requestAnimationFrame(update);
+}
+
+update();
+
+// Key down event
+function keyDown(e) {
+  if (e.key === "Right" || e.key === "ArrowRight") {
+    paddle.dx = paddle.speed;
+  } else if (e.key === "Left" || e.key === "ArrowLeft") {
+    paddle.dx = -paddle.speed;
+  }
+}
+
+// e.keyCode is deprecated, not rec anymore
+
+// Key up event
+function keyUp(e) {
+  if (
+    e.key === "Right" ||
+    e.key === "ArrowRight" ||
+    e.key === "Left" ||
+    e.key === "ArrowLeft"
+  ) {
+    paddle.dx = 0;
+  }
+}
+
+// Keyboard event
+document.addEventListener("keydown", keyDown);
+document.addEventListener("keyup", keyUp);
 
 // Rules & Close rules
 rulesBtn.addEventListener("click", () => rules.classList.add("show"));
