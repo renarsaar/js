@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/83a1148b27.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Minesweeper</title>
+  </head>
+  <body>
+    <div class="vra">
+      <a href="#">Back</a>
+    </div>
+
+    <!-- Time, Difficulty, Mines left, -->
+    <!-- Rules -->
+    <button id="rules-btn" class="btn rules-btn">Show Rules</button>
+    <div id="rules" class="rules">
+      <h2>How to Play:</h2>
+      <p>Hello, Welcome to Minesweeper</p>
+      <p>
+        The objective in Minesweeper is to find and mark all the mines hidden
+        under the squares. This is done by clicking on the squares to open them.
+        Each square will have one of the following:
+      </p>
+      <ul>
+        <li>A mine, and if you click on it you'll lose the game.</li>
+        <li>
+          A number, which tells you how many of its adjacent squares have mines
+          in them.
+        </li>
+        <li>
+          Nothing. In this case you know that none of the adjacent squares have
+          mines, and they will be automatically opened as well.
+        </li>
+      </ul>
+      <p>
+        It is guaranteed that the first square you open won't contain a mine, so
+        you can start by clicking any square. Often you'll hit on an empty
+        square on the first try and then you'll open up a few adjacent squares
+        as well, which makes it easier to continue. Then it's basically just
+        looking at the numbers shown, and figuring out where the mines are.
+      </p>
+      <button id="close-btn" class="btn">Close</button>
+    </div>
+
+    <!-- Game -->
+    <div class="game-info">
+      <div class="select">
+        <select class="difficulty" id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option selected value="hard">Hard</option>
+        </select>
+      </div>
+      <div>
+        <h1>Minesweeper</h1>
+      </div>
+      <i class="fas fa-flag"></i>
+      <div class="mines-left" id="mines-left"></div>
+      <i class="far fa-clock"></i>
+      <div id="time" class="time">000</div>
+    </div>
+    <canvas id="canvas" width="552px" height="460px"></canvas>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

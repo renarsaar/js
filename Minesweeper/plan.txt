@@ -1,0 +1,17 @@
+// How to make mine field?
+
+// Event for start game("click", function())
+
+// Start timer
+// Generate mines (randomly add to gameboard)
+// Add tiles
+
+// mouse down = tile style change
+// mouse up = show tile content
+
+// if mouseup and mine = game over, open all mines
+// if tiles to open = 0 WIN
+
+// tile numbers = how many mines tile touch
+
+
