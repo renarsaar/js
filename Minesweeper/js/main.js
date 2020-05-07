@@ -33,10 +33,13 @@ function createFields() {
       const x = i * fieldInfo.w;
       const y = j * fieldInfo.h;
 
-      let highlight = false;
+      // Highlighted fields
+      let highlight;
       if (i % 2 === 0 && j % 2 === 0) {
+        // every odd field in odd row
         highlight = true;
       } else if (i % 2 === 1 && j % 2 === 1) {
+        // every even field in even col
         highlight = true;
       }
 
@@ -58,6 +61,45 @@ function drawField() {
     });
   });
 }
+
+// Hover effect
+canvas.addEventListener("mousemove", (e) => {
+  fields.forEach((column) => {
+    column.forEach((field) => {
+      // Field coordinates
+      const xStart = field.x;
+      const xEnd = field.x + field.w;
+      const yStart = field.y;
+      const yEnd = field.y + field.h;
+
+      if (
+        // Mouse coordinates = field coordinates
+        e.offsetX > xStart && // Left
+        e.offsetX < xEnd && // Right
+        e.offsetY > yStart && // Top
+        e.offsetY < yEnd // Bottom
+      ) {
+        // Fill with current colors again
+        ctx.beginPath();
+        ctx.rect(xStart, yStart, field.w, field.h);
+        ctx.fillStyle = field.highlight ? "#a2d149" : "#aad751";
+        ctx.fill();
+
+        // Add a stroke
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = "#f6f6f6";
+        ctx.stroke();
+      } else {
+        // If field changed
+        // Fill with original colors, remove stroke
+        ctx.beginPath();
+        ctx.rect(xStart, yStart, field.w, field.h);
+        ctx.fillStyle = field.highlight ? "#a2d149" : "#aad751";
+        ctx.fill();
+      }
+    });
+  });
+});
 
 // Mines
 function trackMines() {
