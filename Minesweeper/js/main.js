@@ -34,7 +34,7 @@ function createFields() {
       const y = j * fieldInfo.h;
 
       // Highlighted fields
-      let highlight;
+      let highlight = false;
       if (i % 2 === 0 && j % 2 === 0) {
         // every odd field in odd row
         highlight = true;
@@ -48,7 +48,22 @@ function createFields() {
   }
 }
 
-// Field canvas
+// Create mines and add to fields
+function createMines() {
+  for (i = 0; i < mines; i++) {
+    // Pick random row from array
+    let randomRow = Math.abs(Math.floor(Math.random() * fieldRowCount - 1));
+
+    // Pick random col from row array
+    let randomCol = Math.abs(Math.floor(Math.random() * fieldColCount - 1));
+
+    // Add a mine
+    fields[randomRow][randomCol].mine = true;
+  }
+  console.log(fields);
+}
+
+// Create field canvas
 function drawField() {
   fields.forEach((column) => {
     column.forEach((field) => {
@@ -61,6 +76,22 @@ function drawField() {
     });
   });
 }
+
+// Mines DOM
+function trackMines() {
+  minesLeft.innerText = `${mines}`;
+}
+
+// Function to call canvas
+function draw() {
+  createFields();
+  drawField();
+  createMines();
+  trackMines();
+}
+
+// Init()
+draw();
 
 // Hover effect
 canvas.addEventListener("mousemove", (e) => {
@@ -100,21 +131,6 @@ canvas.addEventListener("mousemove", (e) => {
     });
   });
 });
-
-// Mines
-function trackMines() {
-  minesLeft.innerText = `${mines}`;
-}
-
-// Function to call canvas
-function draw() {
-  createFields();
-  drawField();
-  trackMines();
-}
-
-// Init()
-draw();
 
 // Difficulty change event
 difficultyEl.addEventListener("change", (e) => {
