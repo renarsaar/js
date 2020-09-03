@@ -1,0 +1,1 @@
+Working serviceworker caching example
